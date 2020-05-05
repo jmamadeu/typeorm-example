@@ -1,5 +1,12 @@
 {
+  "name": "default",
+  "type": "postgres",
+  "host": "localhost",
+  "password": "localhost",
+  "username": "postgres",
+  "database": "shop",
   "synchronize": true,
+  "port": 5432,
   "logging": false,
   "entities": ["src/database/entity/**/*.ts"],
   "migrations": ["src/database/migration/**/*.ts"],
