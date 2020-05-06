@@ -1,12 +1,14 @@
 import express from 'express';
 
-import { createConnection } from 'typeorm';
+import connection from './database';
+import routes from './routes/index.routes';
 
 const app = express();
 
-// createConnection().then((connection) => {
-// });
+connection();
+
 app.use(express.json());
+app.use(routes);
 
 app.listen(3333, () => console.log('server is running'));
 
