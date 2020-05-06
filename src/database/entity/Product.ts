@@ -1,35 +1,42 @@
 import {
   Entity,
   BaseEntity,
-  PrimaryGeneratedColumn,
-  JoinColumn,
+  PrimaryColumn,
   ManyToOne,
   Column,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import Store from './Store';
 
 @Entity()
-class Product extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
-  Id: string;
+class Product {
+  @PrimaryColumn('uuid', { generated: 'uuid' })
+  id: string;
 
   @Column({
-    type: 'string',
+    type: 'varchar',
     length: 50,
   })
-  Name: string;
+  name: string;
 
   @Column('decimal')
-  Price: number;
+  price: number;
 
   @Column('int')
-  Quantity: number;
+  quantity: number;
 
   @Column('text')
-  Description: string;
+  description: string;
 
-  @ManyToOne((type) => Store, (store) => store.Products)
-  Store: Store;
+  @ManyToOne(() => Store, (store) => store.products)
+  store: Store;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updateAt: Date;
 }
 
 export default Product;
