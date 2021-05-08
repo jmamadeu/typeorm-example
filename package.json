@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "pg": "^8.0.3",
     "reflect-metadata": "^0.1.10",
-    "typeorm": "0.2.24"
+    "typeorm": "0.2.25"
   },
   "scripts": {
     "dev:server": "ts-node-dev --transpileOnly --respawn src/app.ts"
